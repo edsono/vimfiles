@@ -1,0 +1,2 @@
+-- dbext:type=SQLITE:dbname=path/to/file.db
+-- dbext:type=ORA:user=@askb:passwd:@askg:srvname=host/instance

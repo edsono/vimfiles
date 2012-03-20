@@ -1,0 +1,14 @@
+*$filename*  Plugin for TODO
+
+Description of pugin comes here...
+
+Mappings:
+<Leader>a   or   <Plug>$filenameAdd
+  Add a correction for the word under the cursor.
+
+Commands:
+:Correct {word}
+  Add a correction for {word}.
+
+            *$filename-settings*
+This plugin doesn't have any settings.

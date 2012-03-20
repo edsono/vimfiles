@@ -1,0 +1,22 @@
+snippet pkg
+	`"package " . substitute(substitute(fnamemodify(getreg("%"), ":h"), "src/", "", ""), "/", "\\.", "g") . ";"`
+snippet docc
+	/**
+	 * ${1:Class description}.
+	 *
+	 * @author Edson César
+	 */
+snippet docm
+	/**
+	 * ${1:Method description}.
+	 *
+	 * @param  ${2:paramName}
+	 *         ${3:Param description}
+	 * @throws ${4:ExceptionClass}
+	 *         ${3:Exception description}
+	 */
+snippet test
+	@Test
+	public void testName() {
+	  ${1}
+	}
