@@ -23,8 +23,13 @@ function! s:ListVimFiles(arglead, cmdline, cursorpos)
 endfunction
 
 " Shortcuts to quickly edit configuration files
-command! -nargs=0 Evimrc  :exec "tabnew ~/.vimrc"
-command! -nargs=0 Egvimrc :exec "tabnew ~/.gvimrc"
+if has('unix')
+  command! -nargs=0 Evimrc  :exec "tabnew ~/.vimrc"
+  command! -nargs=0 Egvimrc :exec "tabnew ~/.gvimrc"
+else
+  command! -nargs=0 Evimrc  :exec "tabnew ~/_vimrc"
+  command! -nargs=0 Egvimrc :exec "tabnew ~/_gvimrc"
+endif
 
 command! -nargs=1 -complete=customlist,<SID>ListVimFiles Eplugin
   \ :exec ":tabnew \| args " . join(split(globpath(&rtp, 'plugin/<args>.vim'), "\n"), ' ')
