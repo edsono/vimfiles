@@ -2,6 +2,12 @@
 "  FileType Auto Commands
 " ----------------------------------------------------------------------------
 
+augroup tex
+  autocmd!
+  " autocmd FileType tex setl wrap linebreak nolist
+  autocmd FileType tex setl tw=78 formatoptions=tq
+augroup END
+
 " don't use cindent for javascript
 augroup javascript
   autocmd!
