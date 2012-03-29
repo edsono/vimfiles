@@ -14,6 +14,7 @@ set autoread                                   " reload files (no local changes 
 set tabpagemax=50                              " open 50 tabs max
 set shortmess=filmnrxoO                        " abbrev. of messages (avoids 'hit enter')
 set completeopt=menu,preview,longest           " complete options
+set spell spelllang=pt,en
 
 " Supertab
 let g:SuperTabCrMapping=1
