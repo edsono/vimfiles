@@ -11,7 +11,11 @@ let g:loaded_skel = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
-let s:SkelDir = fnamemodify(split(&rtp, ',')[0], ':~') . '/skel/'
+if has('unix')
+  let s:SkelDir = '~/.vim/skel/'
+else
+  let s:SkelDir = '~/vimfiles/skel/'
+endif
 
 function! s:Skel(command, template, ...)
   if a:command == 'load'
