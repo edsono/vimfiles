@@ -38,6 +38,7 @@ Bundle 'gmarik/vundle'
 
 " github repos
 Bundle 'edsono/vim-dbext.git'
+Bundle 'edsono/vim-delphi.git'
 Bundle 'edsono/reload.vim.git'
 Bundle 'edsono/vim-matchit.git'
 Bundle 'edsono/snipmate.vim.git'
