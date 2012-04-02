@@ -26,10 +26,15 @@ let g:SuperTabMappingBackward='<Leader><TAB>'  " access Supertab when Snipmate i
 
 filetype off
 
-if has('unix')
+" Check Vundle or exit
+if filereadable(expand('~/.vim/bundle/vundle/autoload/vundle.vim'))
   set rtp+=~/.vim/bundle/vundle/
-else
+elseif filereadable(expand('~/vimfiles/bundle/vundle/autoload/vundle.vim'))
   set rtp+=~/vimfiles/bundle/vundle/
+else
+  echo 'Install Vundle in ~/.vim/bundle first!'
+  echo 'Using: git clone https://github.com/gmarik/vundle.git'
+  quit!
 endif
 call vundle#rc()
 
