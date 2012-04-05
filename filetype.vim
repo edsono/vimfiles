@@ -4,7 +4,7 @@
 
 augroup tex
   autocmd!
-  " autocmd FileType tex setl wrap linebreak nolist
+  autocmd FileType tex compiler latexmk
   autocmd FileType tex setl tw=78 formatoptions=tq
 augroup END
 
