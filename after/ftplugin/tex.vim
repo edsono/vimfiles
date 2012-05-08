@@ -1,1 +1,1 @@
-nmap <buffer> <leader>lr <plug>LatexChangeEnv
+nmap <buffer> <leader>le <plug>LatexChangeEnv
