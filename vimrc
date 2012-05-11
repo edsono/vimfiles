@@ -56,13 +56,11 @@ Bundle 'tpope/vim-commentary.git'
 Bundle 'tpope/vim-unimpaired.git'
 
 Bundle 'mileszs/ack.vim.git'
+Bundle 'wincent/Command-T.git'
 Bundle 'ervandew/supertab.git'
 Bundle 'godlygeek/tabular.git'
 Bundle 'airblade/vim-rooter.git'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
-
-" non github repos
-Bundle 'git://git.wincent.com/command-t.git'
 
 syntax on
 filetype plugin indent on
