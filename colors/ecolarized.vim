@@ -6,47 +6,6 @@
 " Created:  In the middle of the night
 " Modified: 2011 May 05
 
-" ---------------------------------------------------------------------
-" COLOR VALUES
-" ---------------------------------------------------------------------
-" Download palettes and files from: http://ethanschoonover.com/solarized
-"
-" L\*a\*b values are canonical (White D65, Reference D50), other values are
-" matched in sRGB space.
-"
-" SOLARIZED HEX     16/8 TERMCOL  XTERM/HEX   L*A*B      sRGB        HSB
-" --------- ------- ---- -------  ----------- ---------- ----------- -----------
-" base03    #002b36  8/4 brblack  234 #1c1c1c 15 -12 -12   0  43  54 193 100  21
-" base02    #073642  0/4 black    235 #262626 20 -12 -12   7  54  66 192  90  26
-" base01    #586e75 10/7 brgreen  240 #4e4e4e 45 -07 -07  88 110 117 194  25  46
-" base00    #657b83 11/7 bryellow 241 #585858 50 -07 -07 101 123 131 195  23  51
-" base0     #839496 12/6 brblue   244 #808080 60 -06 -03 131 148 150 186  13  59
-" base1     #93a1a1 14/4 brcyan   245 #8a8a8a 65 -05 -02 147 161 161 180   9  63
-" base2     #eee8d5  7/7 white    254 #d7d7af 92 -00  10 238 232 213  44  11  93
-" base3     #fdf6e3 15/7 brwhite  230 #ffffd7 97  00  10 253 246 227  44  10  99
-" yellow    #b58900  3/3 yellow   136 #af8700 60  10  65 181 137   0  45 100  71
-" orange    #cb4b16  9/3 brred    166 #d75f00 50  50  55 203  75  22  18  89  80
-" red       #dc322f  1/1 red      160 #d70000 50  65  45 220  50  47   1  79  86
-" magenta   #d33682  5/5 magenta  125 #af005f 50  65 -05 211  54 130 331  74  83
-" violet    #6c71c4 13/5 brmagenta 61 #5f5faf 50  15 -45 108 113 196 237  45  77
-" blue      #268bd2  4/4 blue      33 #0087ff 55 -10 -45  38 139 210 205  82  82
-" cyan      #2aa198  6/6 cyan      37 #00afaf 60 -35 -05  42 161 152 175  74  63
-" green     #859900  2/2 green     64 #5f8700 60 -20  65 133 153   0  68 100  60
-"
-" ---------------------------------------------------------------------
-" COLORSCHEME HACKING
-" ---------------------------------------------------------------------
-"
-" Useful commands for testing colorschemes:
-" :source $VIMRUNTIME/syntax/hitest.vim
-" :help highlight-groups
-" :help cterm-colors
-" :help group-name
-"
-" Useful links for developing colorschemes:
-" http://www.vim.org/scripts/script.php?script_id=2937
-" http://vimcasts.org/episodes/creating-colorschemes-for-vim/
-" http://www.frexx.de/xterm-256-notes/"
 
 " Colorscheme initialization
 " ---------------------------------------------------------------------
@@ -56,20 +15,11 @@ if exists("syntax_on")
 endif
 let colors_name = "ecolarized"
 
-" GUI & CSApprox hexadecimal palettes
-" ---------------------------------------------------------------------
-"
-" Set both gui and terminal color values in separate conditional statements
-" Due to possibility that CSApprox is running (though I suppose we could just
-" leave the hex values out entirely in that case and include only cterm colors)
-" We also check to see if user has set solarized (force use of the
-" neutral gray monotone palette component)
+let s:vmode = "cterm"
 if has("gui_running")
-    " These colors are identical to the 256 color mode. They may be viewed
-    " while in gui mode via "let g:solarized_degrade=1", though this is not
-    " recommened and is for testing only.
+
     let s:vmode       = "gui"
-    let s:back        = "#000000"
+
     let s:base03      = "#1c1c1c"
     let s:base02      = "#262626"
     let s:base01      = "#4e4e4e"
@@ -78,21 +28,27 @@ if has("gui_running")
     let s:base1       = "#8a8a8a"
     let s:base2       = "#d7d7af"
     let s:base3       = "#ffffd7"
-    let s:yellow      = "#af8700"
-    let s:orange      = "#d75f00"
+
+    let s:black       = "#000000"
+    let s:white       = "#eeeeee"
+
     let s:red         = "#af0000"
-    let s:magenta     = "#af005f"
-    let s:violet      = "#5f5faf"
-    let s:blue        = "#0087ff"
-    let s:darkblue    = "#00008b"
-    let s:cyan        = "#00afaf"
     let s:green       = "#5f8700"
-    let s:diffadd     = "#005f00"
-    let s:diffchange  = "#00005f"
-    let s:difftext    = "#000080"
+    let s:blue        = "#0087ff"
+
+    let s:cyan        = "#00afaf"
+    let s:violet      = "#5f5faf"
+    let s:orange      = "#df5f00"
+    let s:yellow      = "#af8700"
+    let s:magenta     = "#df005f"
+
+    let s:backred     = "#5f0000"
+    let s:backcyan    = "#ff00ff"
+    let s:backblue    = "#00005f"
+    let s:backgreen   = "#800080"
+
 elseif &t_Co == 256
-    let s:vmode       = "cterm"
-    let s:back        = "0"
+
     let s:base03      = "234"
     let s:base02      = "235"
     let s:base01      = "239"
@@ -101,45 +57,58 @@ elseif &t_Co == 256
     let s:base1       = "245"
     let s:base2       = "187"
     let s:base3       = "230"
-    let s:yellow      = "136"
-    let s:orange      = "166"
+
+    let s:black       = "16"
+    let s:white       = "255"
+
     let s:red         = "124"
-    let s:magenta     = "161"
-    let s:violet      = "61"
-    let s:blue        = "33"
-    let s:darkblue    = "18"
-    let s:cyan        = "37"
     let s:green       = "64"
-    let s:diffadd     = "22"
-    let s:diffchange  = "17"
-    let s:difftext    = "19"
+    let s:blue        = "33"
+
+    let s:cyan        = "37"
+    let s:violet      = "61"
+    let s:orange      = "166"
+    let s:yellow      = "136"
+    let s:magenta     = "161"
+
+    let s:backred     = "52"
+    let s:backcyan    = "13"
+    let s:backblue    = "17"
+    let s:backgreen   = "5"
+
 elseif &t_Co >= 16
-    let s:vmode       = "cterm"
-    let s:back        = "0"
-    let s:base03      = "8"
-    let s:base02      = "0"
-    let s:base01      = "10"
-    let s:base00      = "11"
-    let s:base0       = "12"
-    let s:base1       = "14"
+
+    let s:base03      = "0"
+    let s:base02      = "8"
+    let s:base01      = "8"
+    let s:base00      = "8"
+    let s:base0       = "7"
+    let s:base1       = "7"
     let s:base2       = "7"
     let s:base3       = "15"
-    let s:yellow      = "3"
-    let s:orange      = "9"
+
+    let s:black       = "0"
+    let s:white       = "15"
+
     let s:red         = "1"
-    let s:magenta     = "5"
-    let s:violet      = "12"
-    let s:blue        = "4"
-    let s:darkblue    = "4"
-    let s:cyan        = "6"
     let s:green       = "2"
-    let s:diffadd     = "2"
-    let s:diffchange  = "4"
-    let s:difftext    = "4"
+    let s:blue        = "4"
+
+    let s:cyan        = "6"
+    let s:violet      = "12"
+    let s:orange      = "9"
+    let s:yellow      = "11"
+    let s:magenta     = "3"
+
+    let s:backred     = "1"
+    let s:backcyan    = "13"
+    let s:backblue    = "4"
+    let s:backgreen   = "5"
+
 else
-    let s:vmode       = "cterm"
-    let s:back        = "Black"
+
     let s:bright      = "* term=bold cterm=bold"
+
     let s:base03      = "DarkGray"      " 0*
     let s:base02      = "Black"         " 0
     let s:base01      = "LightGreen"    " 2*
@@ -148,23 +117,29 @@ else
     let s:base1       = "LightCyan"     " 6*
     let s:base2       = "LightGray"     " 7
     let s:base3       = "White"         " 7*
-    let s:yellow      = "DarkYellow"    " 3
-    let s:orange      = "LightRed"      " 1*
+
+    let s:black       = "Black"
+    let s:white       = "Black"
+
     let s:red         = "DarkRed"       " 1
-    let s:magenta     = "DarkMagenta"   " 5
-    let s:violet      = "LightMagenta"  " 5*
-    let s:blue        = "Blue"          " 4
-    let s:darkblue    = "DarkBlue"      " 4
-    let s:cyan        = "DarkCyan"      " 6
     let s:green       = "DarkGreen"     " 2
-    let s:diffadd     = "DarkGreen"     " 2
-    let s:difftext    = "DarkBlue"      " 4
-    let s:diffchange  = "DarkBlue"      " 4
+    let s:blue        = "Blue"          " 4
+
+    let s:cyan        = "DarkCyan"      " 6
+    let s:violet      = "LightMagenta"  " 5*
+    let s:orange      = "LightRed"      " 1*
+    let s:yellow      = "DarkYellow"    " 3
+    let s:magenta     = "DarkMagenta"   " 5
+
+    let s:backred     = "DarkRed"       " 1
+    let s:backcyan    = "DarkCyan"      " 4
+    let s:backblue    = "DarkBlue"      " 4
+    let s:backgreen   = "DarkGreen"     " 2
+
 endif
 
 " Formatting options and null values for passthrough effect
 " ---------------------------------------------------------------------
-    let s:none        = "NONE"
     let s:none        = "NONE"
     let s:t_none      = "NONE"
     let s:n           = "NONE"
@@ -185,7 +160,6 @@ endif
 " Highlighting primitives
 " ---------------------------------------------------------------------
 exe "let s:bg_none      = ' ".s:vmode."bg=".s:none     ."'"
-exe "let s:bg_back      = ' ".s:vmode."bg=".s:back     ."'"
 exe "let s:bg_base03    = ' ".s:vmode."bg=".s:base03   ."'"
 exe "let s:bg_base02    = ' ".s:vmode."bg=".s:base02   ."'"
 exe "let s:bg_base01    = ' ".s:vmode."bg=".s:base01   ."'"
@@ -194,6 +168,8 @@ exe "let s:bg_base0     = ' ".s:vmode."bg=".s:base0    ."'"
 exe "let s:bg_base1     = ' ".s:vmode."bg=".s:base1    ."'"
 exe "let s:bg_base2     = ' ".s:vmode."bg=".s:base2    ."'"
 exe "let s:bg_base3     = ' ".s:vmode."bg=".s:base3    ."'"
+exe "let s:bg_black     = ' ".s:vmode."bg=".s:black    ."'"
+exe "let s:bg_white     = ' ".s:vmode."bg=".s:white    ."'"
 exe "let s:bg_green     = ' ".s:vmode."bg=".s:green    ."'"
 exe "let s:bg_yellow    = ' ".s:vmode."bg=".s:yellow   ."'"
 exe "let s:bg_orange    = ' ".s:vmode."bg=".s:orange   ."'"
@@ -202,13 +178,12 @@ exe "let s:bg_magenta   = ' ".s:vmode."bg=".s:magenta  ."'"
 exe "let s:bg_violet    = ' ".s:vmode."bg=".s:violet   ."'"
 exe "let s:bg_cyan      = ' ".s:vmode."bg=".s:cyan     ."'"
 exe "let s:bg_blue      = ' ".s:vmode."bg=".s:blue     ."'"
-exe "let s:bg_darkblue  = ' ".s:vmode."bg=".s:darkblue ."'"
-exe "let s:bg_diffadd   = ' ".s:vmode."bg=".s:diffadd  ."'"
-exe "let s:bg_difftext  = ' ".s:vmode."bg=".s:difftext ."'"
-exe "let s:bg_diffchange= ' ".s:vmode."bg=".s:diffchange ."'"
+exe "let s:bg_backblue  = ' ".s:vmode."bg=".s:backblue ."'"
+exe "let s:bg_backgreen = ' ".s:vmode."bg=".s:backgreen."'"
+exe "let s:bg_backcyan  = ' ".s:vmode."bg=".s:backcyan ."'"
+exe "let s:bg_backred   = ' ".s:vmode."bg=".s:backred  ."'"
 
 exe "let s:fg_none      = ' ".s:vmode."fg=".s:none     ."'"
-exe "let s:fg_back      = ' ".s:vmode."fg=".s:back     ."'"
 exe "let s:fg_base03    = ' ".s:vmode."fg=".s:base03   ."'"
 exe "let s:fg_base02    = ' ".s:vmode."fg=".s:base02   ."'"
 exe "let s:fg_base01    = ' ".s:vmode."fg=".s:base01   ."'"
@@ -217,6 +192,8 @@ exe "let s:fg_base0     = ' ".s:vmode."fg=".s:base0    ."'"
 exe "let s:fg_base1     = ' ".s:vmode."fg=".s:base1    ."'"
 exe "let s:fg_base2     = ' ".s:vmode."fg=".s:base2    ."'"
 exe "let s:fg_base3     = ' ".s:vmode."fg=".s:base3    ."'"
+exe "let s:fg_black     = ' ".s:vmode."fg=".s:black    ."'"
+exe "let s:fg_white     = ' ".s:vmode."fg=".s:white    ."'"
 exe "let s:fg_green     = ' ".s:vmode."fg=".s:green    ."'"
 exe "let s:fg_yellow    = ' ".s:vmode."fg=".s:yellow   ."'"
 exe "let s:fg_orange    = ' ".s:vmode."fg=".s:orange   ."'"
@@ -224,8 +201,8 @@ exe "let s:fg_red       = ' ".s:vmode."fg=".s:red      ."'"
 exe "let s:fg_magenta   = ' ".s:vmode."fg=".s:magenta  ."'"
 exe "let s:fg_violet    = ' ".s:vmode."fg=".s:violet   ."'"
 exe "let s:fg_blue      = ' ".s:vmode."fg=".s:blue     ."'"
-exe "let s:fg_darkblue  = ' ".s:vmode."fg=".s:darkblue ."'"
 exe "let s:fg_cyan      = ' ".s:vmode."fg=".s:cyan     ."'"
+exe "let s:fg_backred   = ' ".s:vmode."fg=".s:backred  ."'"
 
 exe "let s:fmt_none     = ' ".s:vmode."=NONE".          " term=NONE".    "'"
 exe "let s:fmt_bold     = ' ".s:vmode."=NONE".s:b.      " term=NONE".s:b."'"
@@ -247,7 +224,6 @@ exe "let s:fmt_revbbu   = ' ".s:vmode."=NONE".s:r.s:bb.s:u." term=NONE".s:r.s:bb
 
 if has("gui_running")
     exe "let s:sp_none      = ' guisp=".s:none   ."'"
-    exe "let s:sp_back      = ' guisp=".s:back   ."'"
     exe "let s:sp_base03    = ' guisp=".s:base03 ."'"
     exe "let s:sp_base02    = ' guisp=".s:base02 ."'"
     exe "let s:sp_base01    = ' guisp=".s:base01 ."'"
@@ -256,6 +232,8 @@ if has("gui_running")
     exe "let s:sp_base1     = ' guisp=".s:base1  ."'"
     exe "let s:sp_base2     = ' guisp=".s:base2  ."'"
     exe "let s:sp_base3     = ' guisp=".s:base3  ."'"
+    exe "let s:sp_black     = ' guisp=".s:black  ."'"
+    exe "let s:sp_white     = ' guisp=".s:white  ."'"
     exe "let s:sp_green     = ' guisp=".s:green  ."'"
     exe "let s:sp_yellow    = ' guisp=".s:yellow ."'"
     exe "let s:sp_orange    = ' guisp=".s:orange ."'"
@@ -264,6 +242,10 @@ if has("gui_running")
     exe "let s:sp_violet    = ' guisp=".s:violet ."'"
     exe "let s:sp_blue      = ' guisp=".s:blue   ."'"
     exe "let s:sp_cyan      = ' guisp=".s:cyan   ."'"
+    exe "let s:sp_backred   = ' guisp=".s:backred    ."'"
+    exe "let s:sp_backblue  = ' guisp=".s:backblue   ."'"
+    exe "let s:sp_backcyan  = ' guisp=".s:backcyan   ."'"
+    exe "let s:sp_backgreen = ' guisp=".s:backgreen  ."'"
 else
     let s:sp_none      = ""
     let s:sp_back      = ""
@@ -290,7 +272,7 @@ endif
 " note that link syntax to avoid duplicate configuration doesn't work with the
 " exe compiled formats
 
-exe "hi! Normal"         .s:fmt_none   .s:fg_base1  .s:bg_back
+exe "hi! Normal"         .s:fmt_none   .s:fg_base1  .s:bg_black
 
 exe "hi! Comment"        .s:fmt_ital   .s:fg_base01 .s:bg_none
 "       *Comment         any comment
@@ -356,44 +338,37 @@ exe "hi! Todo"           .s:fmt_bold   .s:fg_magenta.s:bg_none
 
 " Extended highlighting
 " ---------------------------------------------------------------------
-    exe "hi! SpecialKey" .s:fmt_none   .s:fg_base01 .s:bg_back
-    exe "hi! NonText"    .s:fmt_none   .s:fg_base01 .s:bg_back
+    exe "hi! SpecialKey" .s:fmt_none   .s:fg_base01 .s:bg_black
+    exe "hi! NonText"    .s:fmt_none   .s:fg_base01 .s:bg_black
 
 exe "hi! TabLine"        .s:fmt_none   .s:fg_base2  .s:bg_base01   .s:sp_base0
 exe "hi! TabLineFill"    .s:fmt_none   .s:fg_base2  .s:bg_base01   .s:sp_base0
-exe "hi! TabLineSel"     .s:fmt_none   .s:fg_base2  .s:bg_darkblue .s:sp_base0
+exe "hi! TabLineSel"     .s:fmt_none   .s:fg_base2  .s:bg_backblue .s:sp_base0
 exe "hi! VertSplit"      .s:fmt_none   .s:fg_none   .s:bg_base01   
-exe "hi! StatusLine"     .s:fmt_none   .s:fg_base2  .s:bg_darkblue
+exe "hi! StatusLine"     .s:fmt_none   .s:fg_base2  .s:bg_backblue
 exe "hi! StatusLineNC"   .s:fmt_none   .s:fg_base2  .s:bg_base01
 exe "hi! ColorColumn"    .s:fmt_none   .s:fg_none   .s:bg_base03
 exe "hi! CursorColumn"   .s:fmt_none   .s:fg_none   .s:bg_base03
 exe "hi! CursorLine"     .s:fmt_uopt   .s:fg_none   .s:bg_base03   .s:sp_base1
 exe "hi! LineNr"         .s:fmt_none   .s:fg_base01 .s:bg_none
 exe "hi! Visual"         .s:fmt_none   .s:fg_none   .s:bg_base02
-exe "hi! Directory"      .s:fmt_none   .s:fg_blue     .s:bg_none
-exe "hi! ErrorMsg"       .s:fmt_none   .s:fg_base3    .s:bg_red
-exe "hi! IncSearch"      .s:fmt_stnd   .s:fg_darkblue .s:bg_base3
-exe "hi! Search"         .s:fmt_revr   .s:fg_red      .s:bg_yellow
-exe "hi! MoreMsg"        .s:fmt_none   .s:fg_blue     .s:bg_none
-exe "hi! ModeMsg"        .s:fmt_none   .s:fg_base1    .s:bg_darkblue
-exe "hi! Question"       .s:fmt_bold   .s:fg_cyan     .s:bg_none
-exe "hi! Title"          .s:fmt_bold   .s:fg_orange   .s:bg_none
-exe "hi! VisualNOS"      .s:fmt_stnd   .s:fg_none     .s:bg_base02 .s:fmt_revbb
-exe "hi! WarningMsg"     .s:fmt_bold   .s:fg_red      .s:bg_none
-exe "hi! WildMenu"       .s:fmt_none   .s:fg_base2    .s:bg_base02 .s:fmt_revbb
-exe "hi! Folded"         .s:fmt_undb   .s:fg_base01   .s:bg_back   .s:sp_base03
-exe "hi! FoldColumn"     .s:fmt_none   .s:fg_base0    .s:bg_base02
-    if has("gui_running")
-exe "hi! DiffAdd"        .s:fmt_bold   .s:fg_green  .s:bg_base02 .s:sp_green
-exe "hi! DiffChange"     .s:fmt_bold   .s:fg_yellow .s:bg_base02 .s:sp_yellow
-exe "hi! DiffDelete"     .s:fmt_bold   .s:fg_red    .s:bg_base02
-exe "hi! DiffText"       .s:fmt_bold   .s:fg_blue   .s:bg_base02 .s:sp_blue
-    else
-exe "hi! DiffAdd"        .s:fmt_none   .s:fg_none   .s:bg_diffadd    .s:sp_green
-exe "hi! DiffText"       .s:fmt_none   .s:fg_blue   .s:bg_difftext   .s:sp_blue
-exe "hi! DiffChange"     .s:fmt_none   .s:fg_yellow .s:bg_diffchange .s:sp_yellow
-exe "hi! DiffDelete"     .s:fmt_none   .s:fg_red    .s:bg_back
-    endif
+exe "hi! Directory"      .s:fmt_none   .s:fg_blue   .s:bg_none
+exe "hi! ErrorMsg"       .s:fmt_none   .s:fg_base3  .s:bg_red
+exe "hi! IncSearch"      .s:fmt_none   .s:fg_white  .s:bg_backblue
+exe "hi! Search"         .s:fmt_revr   .s:fg_red    .s:bg_yellow
+exe "hi! MoreMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
+exe "hi! ModeMsg"        .s:fmt_none   .s:fg_base1  .s:bg_backblue
+exe "hi! Question"       .s:fmt_bold   .s:fg_cyan   .s:bg_none
+exe "hi! Title"          .s:fmt_bold   .s:fg_orange .s:bg_none
+exe "hi! VisualNOS"      .s:fmt_stnd   .s:fg_none   .s:bg_base02 .s:fmt_revbb
+exe "hi! WarningMsg"     .s:fmt_bold   .s:fg_red    .s:bg_none
+exe "hi! WildMenu"       .s:fmt_none   .s:fg_base2  .s:bg_base02 .s:fmt_revbb
+exe "hi! Folded"         .s:fmt_undb   .s:fg_base01 .s:bg_black   .s:sp_base03
+exe "hi! FoldColumn"     .s:fmt_none   .s:fg_base0  .s:bg_base02
+exe "hi! DiffAdd"        .s:fmt_none   .s:fg_none   .s:bg_backgreen    .s:sp_green
+exe "hi! DiffText"       .s:fmt_undb   .s:fg_none   .s:bg_backcyan   .s:sp_cyan
+exe "hi! DiffChange"     .s:fmt_none   .s:fg_none   .s:bg_backcyan .s:sp_cyan
+exe "hi! DiffDelete"     .s:fmt_none   .s:fg_backred.s:bg_backred
 exe "hi! SignColumn"     .s:fmt_none   .s:fg_base0  .s:bg_base0  .s:fmt_revbb
 exe "hi! Conceal"        .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! SpellBad"       .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_red
@@ -406,7 +381,7 @@ exe "hi! PmenuSbar"      .s:fmt_none   .s:fg_base2  .s:bg_base0   .s:fmt_revbb
 exe "hi! PmenuThumb"     .s:fmt_none   .s:fg_base0  .s:bg_base03  .s:fmt_revbb
 exe "hi! Cursor"         .s:fmt_none   .s:fg_base03 .s:bg_base0
 hi! link lCursor Cursor
-exe "hi! MatchParen"     .s:fmt_none   .s:fg_darkblue .s:bg_base0 .s:fmt_revbb
+exe "hi! MatchParen"     .s:fmt_none   .s:fg_none   .s:bg_backblue
 
 " vim syntax highlighting
 " ---------------------------------------------------------------------
@@ -505,18 +480,18 @@ exe "hi! javaScript"        .s:fmt_none .s:fg_yellow .s:bg_none
 " perl highlighting
 " {<  >}
 " ---------------------------------------------------------------------
-exe "hi! perlHereDoc"    . s:fg_base1  .s:bg_back   .s:fmt_none
-exe "hi! perlVarPlain"   . s:fg_yellow .s:bg_back   .s:fmt_none
-exe "hi! perlStatementFileDesc". s:fg_cyan.s:bg_back.s:fmt_none
+exe "hi! perlHereDoc"    . s:fg_base1  .s:bg_black   .s:fmt_none
+exe "hi! perlVarPlain"   . s:fg_yellow .s:bg_black   .s:fmt_none
+exe "hi! perlStatementFileDesc". s:fg_cyan.s:bg_black.s:fmt_none
 
 
 " tex highlighting
 " ---------------------------------------------------------------------
-exe "hi! texStatement"   . s:fg_cyan   .s:bg_back   .s:fmt_none
-exe "hi! texMathZoneX"   . s:fg_yellow .s:bg_back   .s:fmt_none
-exe "hi! texMathMatcher" . s:fg_yellow .s:bg_back   .s:fmt_none
-exe "hi! texMathMatcher" . s:fg_yellow .s:bg_back   .s:fmt_none
-exe "hi! texRefLabel"    . s:fg_yellow .s:bg_back   .s:fmt_none
+exe "hi! texStatement"   . s:fg_cyan   .s:bg_black   .s:fmt_none
+exe "hi! texMathZoneX"   . s:fg_yellow .s:bg_black   .s:fmt_none
+exe "hi! texMathMatcher" . s:fg_yellow .s:bg_black   .s:fmt_none
+exe "hi! texMathMatcher" . s:fg_yellow .s:bg_black   .s:fmt_none
+exe "hi! texRefLabel"    . s:fg_yellow .s:bg_black   .s:fmt_none
 
 " ruby highlighting
 " ---------------------------------------------------------------------
