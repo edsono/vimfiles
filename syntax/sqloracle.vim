@@ -22,20 +22,22 @@ syn keyword sqlKeyword  compress connect current cursor decimal default desc
 syn keyword sqlKeyword  else elsif end exception exclusive file for from
 syn keyword sqlKeyword  function group having identified if immediate increment
 syn keyword sqlKeyword  index initial into is level loop maxextents mode modify
-syn keyword sqlKeyword  nocompress nowait of offline on online start
-syn keyword sqlKeyword  successful synonym table then to trigger uid
-syn keyword sqlKeyword  unique user validate values view whenever
+syn keyword sqlKeyword  nocompress nowait of offline on online start merge
+syn keyword sqlKeyword  successful synonym table then to trigger uid matched
+syn keyword sqlKeyword  unique user validate values view whenever body
 syn keyword sqlKeyword  where with option order pctfree privileges procedure
 syn keyword sqlKeyword  public resource return row rowlabel rownum rows
-syn keyword sqlKeyword  session share size smallint type using
+syn keyword sqlKeyword  session share size smallint type using package
 syn keyword sqlKeyword  join replace case when tablespace quota maxsize
 syn keyword sqlKeyword  datafile permanent management local autoallocate
 syn keyword sqlKeyword  segment space auto extent temporary unlimited
 syn keyword sqlKeyword  constraint primary key sequence autoextend next
 syn keyword sqlKeyword  minvalue maxvalue cache noorder nocycle
-syn keyword sqlKeyword  including contents datafiles materialized
+syn keyword sqlKeyword  including contents datafiles materialized declare
 " SQL*Plus commands
-syn keyword sqlKeyword  prompt pause accept define show set
+syn keyword sqlKeyword  prompt pause accept define show set clear screen
+syn keyword sqlKeyword  off whenever sqlerror exit failure rollback
+syn keyword sqlKeyword  serveroutput errors
 
 syn keyword sqlOperator not and or
 syn keyword sqlOperator in any some all between exists
@@ -50,6 +52,7 @@ syn match   sqlComparator  /\(>\|<=\|>=\|<>\|=\)/
 syn keyword sqlStatement alter analyze audit comment commit create
 syn keyword sqlStatement delete drop execute explain grant insert lock noaudit
 syn keyword sqlStatement rename revoke rollback savepoint select set
+syn keyword sqlStatement foreign references bitmap
 syn keyword sqlStatement truncate update
 
 syn keyword sqlFunction  trunc to_date nvl

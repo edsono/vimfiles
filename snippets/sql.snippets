@@ -1,0 +1,91 @@
+snippet doc
+	-- Modelo Dimensional CCR (`Filename()`)
+	-- dbext:type=ORA:user=${1:user}:passwd=${2:@askb}:srvname=${3:server/service.domain}
+	-- Created by Edson César on `system("date +%Y-%m-%d")`.
+snippet pkg
+	CREATE OR REPLACE PACKAGE ${1:packageName} IS
+	
+	${2}
+	
+	END;
+snippet begin
+	BEGIN
+	  ${3}
+	EXCEPTION
+	  WHEN ${1:OTHERS} THEN
+	    ${2:NULL};
+	END;
+snippet if
+	IF ${1:condition} THEN
+	  ${2}
+	END IF;
+snippet ife
+	IF ${1:condition} THEN
+	  ${2}
+	ELSE
+	  
+	END IF;
+snippet e
+	ELSIF ${2:condition}
+	THEN
+		${1}
+snippet case
+	CASE ${1:expression}
+	  WHEN ${2:value} THEN
+	    ${3}
+	  ELSE
+	    
+	END CASE;
+snippet when
+	WHEN ${1:value} THEN
+	  ${2}
+snippet loop
+	LOOP
+	  ${1}
+	END LOOP;
+snippet for
+	FOR ${1} IN ${2} LOOP
+	  ${3}
+	END LOOP;
+snippet while
+	WHILE ${1:condition} LOOP
+	  ${2}
+	END LOOP;
+snippet cont
+	CONTINUE;
+snippet func
+	FUNCTION ${1:name}(${2:params})${3: AS}
+snippet proc
+	PROCEDURE ${1:name}(${2:params})${3: AS}
+snippet table
+	CREATE TABLE ${1:tablename} (
+	  ${2}
+	);
+snippet date
+	${1:fieldname}               DATE${2:,}
+snippet char
+	${1:fieldname}               CHAR(${2:99} BYTE)${2:,}
+snippet number
+	${1:fieldname}               NUMBER(${2:99,99})${2:,}
+snippet varchar
+	${1:fieldname}               VARCHAR2(${2:99} BYTE)${2:,}
+snippet pk
+	ALTER TABLE ${1:tablename} ADD
+	  CONSTRAINT PK_$1
+	  PRIMARY KEY (ID_$1)
+	  USING INDEX TABLESPACE ${2:tablespace}IDX;
+snippet fk
+	ALTER TABLE ${1:tablename} ADD
+	  CONSTRAINT FK_$1
+	  FOREIGN KEY (ID_$1)
+	  REFERENCES ${2} (${3})
+	  USING INDEX TABLESPACE ${4:tablespace}IDX;
+snippet bitmap
+	CREATE BITMAP INDEX ${1:idxname}
+	  ON ${2:tablename} (${3:fieldname})
+	  TABLESPACE ${4:tablespace}IDX;
+snippet unique
+	CREATE UNIQUE INDEX ${1:idxname}
+	  ON ${2:tablename} (${3:fieldlist})
+	  TABLESPACE ${4:tablespace}IDX;
+
