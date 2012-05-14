@@ -344,7 +344,7 @@ exe "hi! Todo"           .s:fmt_bold   .s:fg_magenta.s:bg_none
 exe "hi! TabLine"        .s:fmt_none   .s:fg_base2  .s:bg_base01   .s:sp_base0
 exe "hi! TabLineFill"    .s:fmt_none   .s:fg_base2  .s:bg_base01   .s:sp_base0
 exe "hi! TabLineSel"     .s:fmt_none   .s:fg_base2  .s:bg_backblue .s:sp_base0
-exe "hi! VertSplit"      .s:fmt_none   .s:fg_none   .s:bg_base01   
+exe "hi! VertSplit"      .s:fmt_none   .s:fg_none   .s:bg_base01
 exe "hi! StatusLine"     .s:fmt_none   .s:fg_base2  .s:bg_backblue
 exe "hi! StatusLineNC"   .s:fmt_none   .s:fg_base2  .s:bg_base01
 exe "hi! ColorColumn"    .s:fmt_none   .s:fg_none   .s:bg_base03
@@ -363,13 +363,13 @@ exe "hi! Title"          .s:fmt_bold   .s:fg_orange .s:bg_none
 exe "hi! VisualNOS"      .s:fmt_stnd   .s:fg_none   .s:bg_base02 .s:fmt_revbb
 exe "hi! WarningMsg"     .s:fmt_bold   .s:fg_red    .s:bg_none
 exe "hi! WildMenu"       .s:fmt_none   .s:fg_base2  .s:bg_base02 .s:fmt_revbb
-exe "hi! Folded"         .s:fmt_undb   .s:fg_base01 .s:bg_black   .s:sp_base03
+exe "hi! Folded"         .s:fmt_undb   .s:fg_base01 .s:bg_black  .s:sp_base03
 exe "hi! FoldColumn"     .s:fmt_none   .s:fg_base0  .s:bg_base02
-exe "hi! DiffAdd"        .s:fmt_none   .s:fg_none   .s:bg_backgreen    .s:sp_green
-exe "hi! DiffText"       .s:fmt_undb   .s:fg_none   .s:bg_backcyan   .s:sp_cyan
-exe "hi! DiffChange"     .s:fmt_none   .s:fg_none   .s:bg_backcyan .s:sp_cyan
+exe "hi! DiffAdd"        .s:fmt_none   .s:fg_none   .s:bg_backgreen .s:sp_green
+exe "hi! DiffText"       .s:fmt_none   .s:fg_none   .s:bg_backgreen .s:sp_cyan
+exe "hi! DiffChange"     .s:fmt_none   .s:fg_none   .s:bg_backcyan  .s:sp_cyan
 exe "hi! DiffDelete"     .s:fmt_none   .s:fg_backred.s:bg_backred
-exe "hi! SignColumn"     .s:fmt_none   .s:fg_base0  .s:bg_base0  .s:fmt_revbb
+exe "hi! SignColumn"     .s:fmt_none   .s:fg_base0  .s:bg_base0   .s:fmt_revbb
 exe "hi! Conceal"        .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! SpellBad"       .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_red
 exe "hi! SpellCap"       .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_violet
