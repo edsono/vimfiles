@@ -381,7 +381,7 @@ exe "hi! PmenuSbar"      .s:fmt_none   .s:fg_base2  .s:bg_base0   .s:fmt_revbb
 exe "hi! PmenuThumb"     .s:fmt_none   .s:fg_base0  .s:bg_base03  .s:fmt_revbb
 exe "hi! Cursor"         .s:fmt_none   .s:fg_base03 .s:bg_base0
 hi! link lCursor Cursor
-exe "hi! MatchParen"     .s:fmt_none   .s:fg_none   .s:bg_backblue
+exe "hi! MatchParen"     .s:fmt_none   .s:fg_white  .s:bg_blue
 
 " vim syntax highlighting
 " ---------------------------------------------------------------------
