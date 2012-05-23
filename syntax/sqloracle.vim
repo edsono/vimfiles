@@ -37,7 +37,8 @@ syn keyword sqlKeyword  including contents datafiles materialized declare
 " SQL*Plus commands
 syn keyword sqlKeyword  prompt pause accept define show set clear screen
 syn keyword sqlKeyword  off whenever sqlerror exit failure rollback
-syn keyword sqlKeyword  serveroutput errors
+syn keyword sqlKeyword  serveroutput errors left right outer purge
+syn keyword sqlKeyword  partition less than range cascade constraints
 
 syn keyword sqlOperator not and or
 syn keyword sqlOperator in any some all between exists
@@ -55,7 +56,8 @@ syn keyword sqlStatement rename revoke rollback savepoint select set
 syn keyword sqlStatement foreign references bitmap
 syn keyword sqlStatement truncate update
 
-syn keyword sqlFunction  trunc to_date nvl
+syn keyword sqlFunction  trunc nvl lpad rpad decode
+syn keyword sqlFunction  to_date to_char to_number
 
 syn keyword sqlType     boolean char character date float integer long
 syn keyword sqlType     mlslabel number raw rowid varchar varchar2 varray
