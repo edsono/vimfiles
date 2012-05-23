@@ -11,9 +11,9 @@ let g:loaded_quickfix = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
-hi! RedBar ctermfg=grey ctermbg=darkred guifg=grey guibg=darkred
-hi! BlueBar ctermfg=grey ctermbg=darkblue guifg=grey guibg=darkblue
-hi! GreenBar ctermfg=grey ctermbg=darkgreen guifg=grey guibg=darkgreen
+hi! RedBar ctermfg=white ctermbg=darkred guifg=white guibg=darkred
+hi! BlueBar ctermfg=white ctermbg=darkblue guifg=white guibg=darkblue
+hi! GreenBar ctermfg=white ctermbg=darkgreen guifg=white guibg=darkgreen
 
 function! QfReset()
   hi! clear Search
