@@ -257,6 +257,20 @@ noremap <leader>P :set paste<CR>"*P<CR>:set nopaste<CR>
 inoremap kj <esc>
 inoremap jk <esc>
 
+" sane arrows
+map <Esc>[A <Up>
+map <Esc>[B <Down>
+map <Esc>[C <Right>
+map <Esc>[D <Left>
+
+if &term =~ '^screen'
+  " tmux will send xterm-style keys when its xterm-keys option is on
+  execute "set <xUp>=\e[1;*A"
+  execute "set <xDown>=\e[1;*B"
+  execute "set <xRight>=\e[1;*C"
+  execute "set <xLeft>=\e[1;*D"
+endif
+
 if !has("gui_running")
   if &term =~? '256color'
     set t_Co=256
