@@ -2,6 +2,10 @@
 "  FileType Auto Commands
 " ----------------------------------------------------------------------------
 
+augroup epub
+  au BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
+augroup END
+
 augroup tex
   autocmd!
   autocmd FileType tex compiler latexmk
