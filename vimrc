@@ -27,14 +27,15 @@ let g:SuperTabMappingBackward='<Leader><TAB>'  " access Supertab when Snipmate i
 filetype off
 
 " Check Vundle or exit
+let iCanHazVundle=1
 if filereadable(expand('~/.vim/bundle/vundle/autoload/vundle.vim'))
   set rtp+=~/.vim/bundle/vundle/
-elseif filereadable(expand('~/vimfiles/bundle/vundle/autoload/vundle.vim'))
-  set rtp+=~/vimfiles/bundle/vundle/
 else
-  echo 'Install Vundle in ~/.vim/bundle first!'
-  echo 'Using: git clone https://github.com/gmarik/vundle.git'
-  quit!
+  echo "Installing Vundle.."
+  echo ""
+  silent !mkdir -p ~/.vim/bundle
+  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+  let iCanHazVundle=0
 endif
 call vundle#rc()
 
@@ -55,12 +56,22 @@ Bundle 'tpope/vim-surround.git'
 Bundle 'tpope/vim-commentary.git'
 Bundle 'tpope/vim-unimpaired.git'
 
+Bundle 'kien/ctrlp.vim.git'
 Bundle 'mileszs/ack.vim.git'
-Bundle 'wincent/Command-T.git'
+Bundle 'sjl/vitality.vim.git'
+Bundle 'majutsushi/tagbar.git'
 Bundle 'ervandew/supertab.git'
 Bundle 'godlygeek/tabular.git'
 Bundle 'airblade/vim-rooter.git'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
+
+" Bundle 'wincent/Command-T.git'
+
+if iCanHazVundle == 0
+  echo "Installing Bundles, please ignore key map error messages"
+  echo ""
+  :BundleInstall
+endif
 
 syntax on
 filetype plugin indent on
@@ -183,13 +194,9 @@ command! -complete=help -nargs=1 H  :vertical botright help <args>
 "  Mappings
 " ----------------------------------------------------------------------------
 
-" Double Esc
-inoremap <Leader><Esc> <Esc><Esc>
-
 " Sane marks
 nnoremap ' `
 nnoremap ` '
-
 
 " open files in another window
 nnoremap gf     <C-W>f
@@ -230,8 +237,6 @@ vnoremap <C-k> :m-2<CR>gv=gv
 " tcsh style on command line
 cnoremap <C-A> <Home>
 cnoremap <C-D> <Del>
-cnoremap <Esc>b <S-Left>
-cnoremap <Esc>f <S-Right>
 
 " ----------------------------------------------------------------------------
 "  Leader Mappings
@@ -252,16 +257,11 @@ noremap <leader>P :set paste<CR>"*P<CR>:set nopaste<CR>
 " Terminal Support
 " ----------------------------------------------------------------------------
 
-" additional esc's for ins mode.
-" " note: ctrl [ or ctrl c work also as esc
-inoremap kj <esc>
-inoremap jk <esc>
-
 " sane arrows
-map <Esc>[A <Up>
-map <Esc>[B <Down>
-map <Esc>[C <Right>
-map <Esc>[D <Left>
+" map <Esc>[A <Up>
+" map <Esc>[B <Down>
+" map <Esc>[C <Right>
+" map <Esc>[D <Left>
 
 if &term =~ '^screen'
   " tmux will send xterm-style keys when its xterm-keys option is on
@@ -277,10 +277,10 @@ if !has("gui_running")
     let g:solarized_termcolors=256
   endif
   set mouse=a
-  set timeout                                  " timeout on mappings (leader sequences)
-  set ttimeout                                 " do timeout on terminal key codes
-  set timeoutlen=1500                           " timeout after 300 msec
-  set ttimeoutlen=100                          " ttimeout after 100 msec
+  set timeout
+  set ttimeout
+  set timeoutlen=500
+  set ttimeoutlen=100
 endif
 
 " ----------------------------------------------------------------------------
