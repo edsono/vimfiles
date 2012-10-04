@@ -65,8 +65,6 @@ Bundle 'godlygeek/tabular.git'
 Bundle 'airblade/vim-rooter.git'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 
-" Bundle 'wincent/Command-T.git'
-
 if iCanHazVundle == 0
   echo "Installing Bundles, please ignore key map error messages"
   echo ""
