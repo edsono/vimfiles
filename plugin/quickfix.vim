@@ -33,7 +33,7 @@ function! QfMessage()
 endfunction
 
 " Make/Ant/Rake
-nnoremap <silent> <Leader>q :make! %<CR>
+nnoremap <silent> <Leader>q :make!<CR>
 nnoremap <silent> <Leader>Q :execute 'silent make! %' \| execute ':redraw!' \| call QfMessage()<CR>
 
 " Show Quickfix window on error
