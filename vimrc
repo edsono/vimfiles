@@ -64,6 +64,7 @@ Bundle 'ervandew/supertab.git'
 Bundle 'godlygeek/tabular.git'
 Bundle 'airblade/vim-rooter.git'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
+Bundle 'Lokaltog/vim-powerline.git'
 
 if iCanHazVundle == 0
   echo "Installing Bundles, please ignore key map error messages"
@@ -130,16 +131,6 @@ set diffopt=filler,foldcolumn:0                " dont show foldcolumn on diff
 set switchbuf=useopen,usetab,split             " always open another buffer (quickfix)
 set list listchars=trail:.,tab:▸\ ,eol:¬       " use the same symbols as TextMate for tabstops and EOLs
 set fillchars=fold:\ ,diff:-
-" ----------------------------------------------------------------------------
-" Status Line
-" ----------------------------------------------------------------------------
-
-
-set statusline=[%n%#incsearch#%{&mod?'+':''}%*] " [Buffer modified?] format
-set statusline+=\ %Y\ %<%.99f                    " Path to the file as typed or relative to current
-set statusline+=%=%{StatusHighlightGroup()}
-set statusline+=\ %{&ff}/%{&fenc}                " Filetype/enconding
-set statusline+=%15(\ %l,%c(%P)%)
 
 " ----------------------------------------------------------------------------
 " Text Formatting

@@ -342,10 +342,10 @@ exe "hi! Todo"           .s:fmt_bold   .s:fg_magenta.s:bg_none
     exe "hi! NonText"    .s:fmt_none   .s:fg_base01 .s:bg_black
 
 exe "hi! TabLine"        .s:fmt_none   .s:fg_base2  .s:bg_base01   .s:sp_base0
-exe "hi! TabLineFill"    .s:fmt_none   .s:fg_base2  .s:bg_base01   .s:sp_base0
-exe "hi! TabLineSel"     .s:fmt_none   .s:fg_base2  .s:bg_backblue .s:sp_base0
+exe "hi! TabLineFill"    .s:fmt_none   .s:fg_base3  .s:bg_base01   .s:sp_base0
+exe "hi! TabLineSel"     .s:fmt_none   .s:fg_base3  .s:bg_base0    .s:sp_base0
 exe "hi! VertSplit"      .s:fmt_none   .s:fg_none   .s:bg_base01
-exe "hi! StatusLine"     .s:fmt_none   .s:fg_base2  .s:bg_backblue
+exe "hi! StatusLine"     .s:fmt_none   .s:fg_base01 .s:bg_base01
 exe "hi! StatusLineNC"   .s:fmt_none   .s:fg_base2  .s:bg_base01
 exe "hi! ColorColumn"    .s:fmt_none   .s:fg_none   .s:bg_base03
 exe "hi! CursorColumn"   .s:fmt_none   .s:fg_none   .s:bg_base03
