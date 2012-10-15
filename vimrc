@@ -53,6 +53,7 @@ Bundle 'edsono/vim-viewoutput.git'
 
 Bundle 'tpope/vim-repeat.git'
 Bundle 'tpope/vim-surround.git'
+Bundle 'tpope/vim-fugitive.git'
 Bundle 'tpope/vim-commentary.git'
 Bundle 'tpope/vim-unimpaired.git'
 
@@ -63,6 +64,7 @@ Bundle 'majutsushi/tagbar.git'
 Bundle 'ervandew/supertab.git'
 Bundle 'godlygeek/tabular.git'
 Bundle 'airblade/vim-rooter.git'
+Bundle 'scrooloose/syntastic.git'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 Bundle 'Lokaltog/vim-powerline.git'
 
