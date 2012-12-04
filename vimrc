@@ -148,7 +148,7 @@ set expandtab                                  " expand tabs to spaces
 set nosmarttab                                 " fuck tabs
 set formatoptions+=n                           " support for numbered/bullet lists
 set textwidth=0                                " no wrap at all by default
-set virtualedit=block                          " allow virtual edit in visual block ..
+set virtualedit=block                          " allow virtual edit in visual block ...
 
 " ----------------------------------------------------------------------------
 " Other Configurations
