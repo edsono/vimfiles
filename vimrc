@@ -103,7 +103,7 @@ endif
 set ruler                                      " show the cursor position all the time
 set showcmd                                    " display incomplete commands
 set nolazyredraw                               " turn off lazy redraw
-set number                                     " line numbers
+set relativenumber                             " relative line numbers
 set cmdheight=2                                " command line height
 set backspace=2                                " allow backspacing over everything in insert mode
 set whichwrap+=<,>,h,l,[,]                     " backspace and cursor keys wrap to
