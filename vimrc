@@ -64,6 +64,7 @@ Bundle 'majutsushi/tagbar.git'
 Bundle 'ervandew/supertab.git'
 Bundle 'godlygeek/tabular.git'
 Bundle 'airblade/vim-rooter.git'
+Bundle 'scrooloose/syntastic.git'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 Bundle 'Lokaltog/vim-powerline.git'
 
