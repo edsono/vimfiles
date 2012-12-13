@@ -103,7 +103,7 @@ endif
 set ruler                                      " show the cursor position all the time
 set showcmd                                    " display incomplete commands
 set nolazyredraw                               " turn off lazy redraw
-set number                                     " line numbers
+set relativenumber                             " relative line numbers
 set cmdheight=2                                " command line height
 set backspace=2                                " allow backspacing over everything in insert mode
 set whichwrap+=<,>,h,l,[,]                     " backspace and cursor keys wrap to
@@ -131,7 +131,7 @@ set hidden                                     " don't warning about unsaved buf
 set scrolloff=3                                " always show 3 lines around cursor lines
 set diffopt=filler,foldcolumn:0                " dont show foldcolumn on diff
 set switchbuf=useopen,usetab,split             " always open another buffer (quickfix)
-set list listchars=trail:.,tab:▸\ ,eol:¬       " use the same symbols as TextMate for tabstops and EOLs
+set list listchars=tab:▸\ ,eol:¬,extends:»,precedes:«,trail:• " use the same symbols as TextMate for tabstops and EOLs
 set fillchars=fold:\ ,diff:-
 
 " ----------------------------------------------------------------------------
@@ -148,7 +148,7 @@ set expandtab                                  " expand tabs to spaces
 set nosmarttab                                 " fuck tabs
 set formatoptions+=n                           " support for numbered/bullet lists
 set textwidth=0                                " no wrap at all by default
-set virtualedit=block                          " allow virtual edit in visual block ..
+set virtualedit=block                          " allow virtual edit in visual block ...
 
 " ----------------------------------------------------------------------------
 " Other Configurations
