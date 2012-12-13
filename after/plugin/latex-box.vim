@@ -5,7 +5,7 @@
 " Mappings
 imap <buffer> [[         \begin{
 imap <buffer> ]]         <Plug>LatexCloseCurEnv
-nmap <buffer> <Leader>le <Plug>LatexChangeEnv
+nmap <buffer> <Leader>lE <Plug>LatexChangeEnv
 vmap <buffer> <Leader>lw <Plug>LatexWrapSelection
 vmap <buffer> <Leader>lW <Plug>LatexEnvWrapSelection
 imap <buffer> ((         \eqref{
