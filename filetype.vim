@@ -6,6 +6,11 @@ augroup epub
   au BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
 augroup END
 
+augroup txt
+  autocmd!
+  autocmd FileType text setl tw=78 formatoptions=tq
+augroup END
+
 augroup tex
   autocmd!
   autocmd FileType tex compiler latexmk
