@@ -53,8 +53,8 @@ endif
 call add(g:ctrlp_ext_vars, {
   \ 'init': 'ctrlp#'.s:n.'#init()',
   \ 'accept': 'ctrlp#'.s:n.'#accept',
-  \ 'lname': 'skel files',
-  \ 'sname': 'skels',
+  \ 'lname': 'skel',
+  \ 'sname': 'ske',
   \ 'type': 'path',
   \ 'sort': 0,
   \ })
