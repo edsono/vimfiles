@@ -319,6 +319,20 @@ imap <Esc>OB <Down>
 imap <Esc>OC <Right>
 imap <Esc>OD <Left>
 
+if &term =~ '^screen'
+  " tmux sane arrows for Command-T
+  map <Esc>[A <Up>
+  map <Esc>[B <Down>
+  map <Esc>[C <Right>
+  map <Esc>[D <Left>
+
+  " tmux will send xterm-style keys when its xterm-keys option is on
+  execute "set <xUp>=\e[1;*A"
+  execute "set <xDown>=\e[1;*B"
+  execute "set <xRight>=\e[1;*C"
+  execute "set <xLeft>=\e[1;*D"
+endif
+
 if !has("gui_running")
   set mouse=a
   set notimeout
