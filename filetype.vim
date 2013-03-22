@@ -6,6 +6,13 @@ augroup epub
   au BufReadCmd *.epub call zip#Browse(expand("<amatch>"))
 augroup END
 
+augroup pandoc
+  autocmd!
+  autocmd BufRead,BufNewFile *.md set filetype=pandoc
+  autocmd FileType pandoc setl tw=78 formatoptions=tqn
+  autocmd FileType pandoc setl tw=78 formatoptions=tqn
+augroup END
+
 augroup tex
   autocmd!
   autocmd FileType tex compiler latexmk
