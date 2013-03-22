@@ -11,7 +11,6 @@ augroup pandoc
   autocmd BufRead,BufNewFile *.md set filetype=pandoc
   autocmd FileType pandoc setl tw=78 formatoptions=tqn
   autocmd FileType pandoc setl tw=78 formatoptions=tqn
-augroup END
 
 augroup tex
   autocmd!
