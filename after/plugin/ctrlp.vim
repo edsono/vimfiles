@@ -2,6 +2,13 @@
 "  CtrlP
 " ----------------------------------------------------------------------------
 
+" Do not show files...
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$',
+  \ 'file': '\.exe$\|\.so$\|\.dll\|\.pyc$',
+  \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+  \ }
+
 let g:ctrlp_extensions = ['skel']
 command! CtrlPSkel call ctrlp#init(ctrlp#skel#id())
 
