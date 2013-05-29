@@ -67,6 +67,7 @@ Bundle 'airblade/vim-rooter.git'
 Bundle 'scrooloose/syntastic.git'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 Bundle 'Lokaltog/vim-powerline.git'
+Bundle 'vim-scripts/bufkill.vim.git'
 
 if iCanHazVundle == 0
   echo "Installing Bundles, please ignore key map error messages"
