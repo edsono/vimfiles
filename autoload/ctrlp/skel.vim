@@ -66,8 +66,10 @@ call add(g:ctrlp_ext_vars, {
 "
 function! ctrlp#skel#init()
   let result = []
-  for fn in split(globpath(s:SkelDir, '**/*.*'), "\n")
-    call insert(result, fnamemodify(fn, ':~:s?' . escape(s:SkelDir, ' \.~') . '??'))
+  for fn in split(globpath(s:SkelDir, '**/*'), "\n")
+    if getftype(fn) == 'file'
+      call insert(result, fnamemodify(fn, ':~:s?' . escape(s:SkelDir, ' \.~') . '??'))
+    endif
   endfor
   return result
 endfunction
