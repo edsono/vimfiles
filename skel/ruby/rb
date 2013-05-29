@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+# vim:ft=ruby:filencoding=utf-8
+# Edson César <edsono@gmail.com> ($date)
+#/ Usage: rocco [-l <lang>] [-c <chars>] [-o <dir>] <file>...
+#/ Generate literate-programming-style documentation for Ruby source <file>s.
+
+# Write usage message to stdout and exit.
+def usage(stream=$stderr, status=1)
+  stream.puts File.readlines(__FILE__).
+    grep(/^#\//).
+    map { |line| line.sub(/^#. ?/, '') }.
+    join
+  exit status
+end
+
+usage unless ARGV.size > 1
+
+#TODO: code!
