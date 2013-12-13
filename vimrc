@@ -1,3 +1,16 @@
+filetype off
+
+" Check Vundle or exit
+if filereadable(expand('~/.vim/bundle/vundle/autoload/vundle.vim'))
+  set rtp+=~/.vim/bundle/vundle/
+else
+  echo "Installing Vundle.."
+  echo ""
+  silent !mkdir -p ~/.vim/bundle
+  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+  quit!
+endif
+
 " ---------------------------------------------------------------------------
 " General
 " ---------------------------------------------------------------------------
