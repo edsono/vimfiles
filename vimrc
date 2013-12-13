@@ -99,6 +99,75 @@ set textwidth=0                                " no wrap at all by default
 set virtualedit=block                          " allow virtual edit in visual block ...
 
 " ----------------------------------------------------------------------------
+" Vundle
+" ----------------------------------------------------------------------------
+
+filetype off
+
+" Check Vundle or exit
+if filereadable(expand('~/.vim/bundle/vundle/autoload/vundle.vim'))
+  set rtp+=~/.vim/bundle/vundle/
+else
+  echo "Installing Vundle.."
+  echo ""
+  silent !mkdir -p ~/.vim/bundle
+  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+  quit!
+endif
+call vundle#rc()
+
+" let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+" vimscript repos
+Bundle 'dbext.vim'
+Bundle 'ViewOutput'
+Bundle 'matchit.zip'
+Bundle 'LanguageTool'
+
+" github repos
+Bundle 'edsono/vim-delphi.git'
+
+Bundle 'ervandew/ag.git'
+Bundle 'ervandew/supertab.git'
+
+Bundle 'xolox/vim-misc.git'
+Bundle 'xolox/vim-reload.git'
+
+Bundle 'tpope/vim-repeat.git'
+Bundle 'tpope/vim-surround.git'
+Bundle 'tpope/vim-fugitive.git'
+Bundle 'tpope/vim-commentary.git'
+Bundle 'tpope/vim-unimpaired.git'
+
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'honza/vim-snippets'
+Bundle 'garbas/vim-snipmate'
+
+Bundle 'mbbill/undotree'
+Bundle 'bling/vim-airline'
+Bundle 'kien/ctrlp.vim.git'
+Bundle 'jgdavey/tslime.vim'
+Bundle 'majutsushi/tagbar.git'
+Bundle 'godlygeek/tabular.git'
+Bundle 'airblade/vim-rooter.git'
+Bundle 'scrooloose/syntastic.git'
+Bundle 'LaTeX-Box-Team/LaTeX-Box'
+Bundle 'vim-scripts/bufkill.vim.git'
+
+" Install plugins if are not there...
+if len(split(globpath('~/.vim/bundle', '*'), '\n')) <= 1
+  echo "Installing Bundles, please ignore key map error messages"
+  echo ""
+  :BundleInstall!
+  quit!
+endif
+
+syntax on
+filetype plugin indent on
+
+" ----------------------------------------------------------------------------
 " Other Configurations
 " ----------------------------------------------------------------------------
 
@@ -222,7 +291,6 @@ endif
 
 set background=dark
 colorscheme ecolarized
-
 
 " ----------------------------------------------------------------------------
 " Source Local Configuration
