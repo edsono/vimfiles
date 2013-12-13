@@ -96,6 +96,7 @@ function! ctrlp#skel#accept(mode, str)
   if exists("*strftime")
     exec "%s/\$date/" . strftime("%Y %b %d") . "/g"
   endif
+  exec ":0"
 endfunction
 
 
