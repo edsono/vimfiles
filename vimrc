@@ -42,14 +42,18 @@ call vundle#rc()
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 
+" vimscript repos
+Bundle 'dbext.vim'
+Bundle 'ViewOutput'
+Bundle 'matchit.zip'
+Bundle 'LanguageTool'
+
 " github repos
-Bundle 'edsono/vim-dbext.git'
 Bundle 'edsono/vim-delphi.git'
-Bundle 'edsono/reload.vim.git'
-Bundle 'edsono/vim-matchit.git'
 Bundle 'edsono/snipmate.vim.git'
-Bundle 'edsono/vim-autoclose.git'
-Bundle 'edsono/vim-viewoutput.git'
+
+Bundle 'ervandew/ag.git'
+Bundle 'ervandew/supertab.git'
 
 Bundle 'tpope/vim-repeat.git'
 Bundle 'tpope/vim-surround.git'
@@ -57,17 +61,18 @@ Bundle 'tpope/vim-fugitive.git'
 Bundle 'tpope/vim-commentary.git'
 Bundle 'tpope/vim-unimpaired.git'
 
-Bundle 'ervandew/ag.git'
-Bundle 'ervandew/supertab.git'
-
+Bundle 'mbbill/undotree'
+Bundle 'bling/vim-airline'
 Bundle 'kien/ctrlp.vim.git'
+Bundle 'jgdavey/tslime.vim'
 Bundle 'sjl/vitality.vim.git'
+Bundle 'xolox/vim-reload.git'
 Bundle 'majutsushi/tagbar.git'
 Bundle 'godlygeek/tabular.git'
 Bundle 'airblade/vim-rooter.git'
 Bundle 'scrooloose/syntastic.git'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
-Bundle 'Lokaltog/vim-powerline.git'
+Bundle 'elixir-lang/vim-elixir.git'
 Bundle 'vim-scripts/bufkill.vim.git'
 
 if iCanHazVundle == 0
@@ -135,6 +140,7 @@ set diffopt=filler,foldcolumn:0                " dont show foldcolumn on diff
 set switchbuf=useopen,usetab,split             " always open another buffer (quickfix)
 set list listchars=tab:▸\ ,eol:¬,extends:»,precedes:«,trail:• " use the same symbols as TextMate for tabstops and EOLs
 set fillchars=fold:\ ,diff:-
+set showbreak=…
 
 " ----------------------------------------------------------------------------
 " Text Formatting
@@ -217,9 +223,12 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" ident and stay in visualmode
+" indent and stay in visualmode
 vnoremap < <gv
 vnoremap > >gv
+
+" Avoid # char going to first column in smartindent
+inoremap # X#
 
 " move lines around
 inoremap <C-j> <Esc>:m+<CR>==gi
@@ -250,30 +259,21 @@ noremap <leader>P :set paste<CR>"*P<CR>:set nopaste<CR>
 " Terminal Support
 " ----------------------------------------------------------------------------
 
-" sane arrows
-" map <Esc>[A <Up>
-" map <Esc>[B <Down>
-" map <Esc>[C <Right>
-" map <Esc>[D <Left>
-
-if &term =~ '^screen'
-  " tmux will send xterm-style keys when its xterm-keys option is on
-  execute "set <xUp>=\e[1;*A"
-  execute "set <xDown>=\e[1;*B"
-  execute "set <xRight>=\e[1;*C"
-  execute "set <xLeft>=\e[1;*D"
-endif
+" Sane Arrows
+imap <Esc>OA <Up>
+imap <Esc>OB <Down>
+imap <Esc>OC <Right>
+imap <Esc>OD <Left>
 
 if !has("gui_running")
-  if &term =~? '256color'
-    set t_Co=256
-    let g:solarized_termcolors=256
-  endif
   set mouse=a
   set timeout
   set ttimeout
   set timeoutlen=500
   set ttimeoutlen=100
+  if &term =~? '256color'
+    set t_Co=256
+  endif
 endif
 
 " ----------------------------------------------------------------------------
