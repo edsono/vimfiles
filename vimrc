@@ -24,66 +24,6 @@ let g:SuperTabDefaultCompletionType="context"
 let g:SuperTabDefaultCompletionType="<c-n>"
 let g:SuperTabMappingBackward='<Leader><TAB>'  " access Supertab when Snipmate is 'running'
 
-filetype off
-
-" Check Vundle or exit
-let iCanHazVundle=1
-if filereadable(expand('~/.vim/bundle/vundle/autoload/vundle.vim'))
-  set rtp+=~/.vim/bundle/vundle/
-else
-  echo "Installing Vundle.."
-  echo ""
-  silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-  let iCanHazVundle=0
-endif
-call vundle#rc()
-
-" let Vundle manage Vundle
-Bundle 'gmarik/vundle'
-
-" vimscript repos
-Bundle 'dbext.vim'
-Bundle 'ViewOutput'
-Bundle 'matchit.zip'
-Bundle 'LanguageTool'
-
-" github repos
-Bundle 'edsono/vim-delphi.git'
-Bundle 'edsono/snipmate.vim.git'
-
-Bundle 'ervandew/ag.git'
-Bundle 'ervandew/supertab.git'
-
-Bundle 'tpope/vim-repeat.git'
-Bundle 'tpope/vim-surround.git'
-Bundle 'tpope/vim-fugitive.git'
-Bundle 'tpope/vim-commentary.git'
-Bundle 'tpope/vim-unimpaired.git'
-
-Bundle 'mbbill/undotree'
-Bundle 'bling/vim-airline'
-Bundle 'kien/ctrlp.vim.git'
-Bundle 'jgdavey/tslime.vim'
-Bundle 'sjl/vitality.vim.git'
-Bundle 'xolox/vim-reload.git'
-Bundle 'majutsushi/tagbar.git'
-Bundle 'godlygeek/tabular.git'
-Bundle 'airblade/vim-rooter.git'
-Bundle 'scrooloose/syntastic.git'
-Bundle 'LaTeX-Box-Team/LaTeX-Box'
-Bundle 'elixir-lang/vim-elixir.git'
-Bundle 'vim-scripts/bufkill.vim.git'
-
-if iCanHazVundle == 0
-  echo "Installing Bundles, please ignore key map error messages"
-  echo ""
-  :BundleInstall
-endif
-
-syntax on
-filetype plugin indent on
-
 " ----------------------------------------------------------------------------
 " Backups
 " ----------------------------------------------------------------------------

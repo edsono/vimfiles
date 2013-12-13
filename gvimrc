@@ -6,13 +6,13 @@ winpos 0 0
 set columns=239 lines=200
 
 if has("gui_macvim")
-  set macmeta                   " Enable Alt key to be mapped in MacVim
-  set gfn=Mensch:h11
+  set macmeta                                                            " Enable Alt key to be mapped in MacVim
+  set gfn=Mensch:h12
 elseif has("gui_gtk")
   set winaltkeys=no                                                      " Enable ALT so maximize tip below can work
   set guifont=Inconsolata-g\ 8
 elseif has("gui_win32")
-  set guifont=Mensch:h9:cANSI
+  set guifont=Mensch:h12:cANSI
   set winaltkeys=yes                                                     " Enable ALT so maximize tip below can work
   au GUIEnter * simalt ~x                                                " Maximize window
   set winaltkeys=no                                                      " Remove ALT for menus
