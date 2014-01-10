@@ -91,7 +91,7 @@ set hidden                                     " don't warning about unsaved buf
 set scrolloff=3                                " always show 3 lines around cursor lines
 set diffopt=filler,foldcolumn:0                " dont show foldcolumn on diff
 set switchbuf=useopen,usetab,split             " always open another buffer (quickfix)
-set list listchars=tab:▸\ ,eol:¬,extends:»,precedes:«,trail:• " use the same symbols as TextMate for tabstops and EOLs
+set nolist listchars=tab:▸\ ,eol:¬,extends:»,precedes:«,trail:• " use the same symbols as TextMate for tabstops and EOLs
 set fillchars=fold:\ ,diff:-
 set showbreak=…
 

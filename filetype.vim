@@ -10,12 +10,17 @@ augroup pandoc
   autocmd!
   autocmd BufRead,BufNewFile *.md set filetype=pandoc
   autocmd FileType pandoc setl tw=78 formatoptions=tqn
-  autocmd FileType pandoc setl tw=78 formatoptions=tqn
+augroup END
 
 augroup tex
   autocmd!
   autocmd FileType tex compiler latexmk
-  autocmd FileType tex setl tw=78 formatoptions=tq
+  autocmd FileType tex setl wrap linebreak nolist
+augroup END
+
+augroup plaintex
+  autocmd!
+  autocmd FileType plaintex setl wrap linebreak nolist
 augroup END
 
 " don't use cindent for javascript

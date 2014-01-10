@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+#/ Usage: <filename> <database> <csvfile>
+#/ Export from <database> to <csvfile>
+set -e
+
+if [ $# -lt 2 -o "$1" = "--help" ]
+then
+    grep '^#/' <"$0" |
+    cut -c4-
+    exit 2
+fi
+
+sqlite3 ./sys/xserve_sqlite.db <<!
+.headers on
+.mode csv
+.output out.csv
+select * from table1;
+!
+
+# dbext:type=SQLITE:dbname=path/to/file.db
