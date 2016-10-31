@@ -226,10 +226,6 @@ command! -complete=help -nargs=1 H  :vertical botright help <args>
 nnoremap ' `
 nnoremap ` '
 
-" Sane ESC
-inoremap jk <ESC>
-inoremap <ESC> <nop>
-
 " open files in another window
 nnoremap gf     <C-W>f
 
@@ -281,6 +277,9 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 " ----------------------------------------------------------------------------
 "  Leader Mappings
 " ----------------------------------------------------------------------------
+
+" change the mapleader from \ to ,
+let mapleader=","
 
 " search text recently deleted
 nnoremap <Leader>n /<C-R>"<CR>
