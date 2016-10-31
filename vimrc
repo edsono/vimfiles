@@ -306,10 +306,27 @@ if !has("gui_running")
   set mouse=a
   set timeout                 " timeout on mappings and key codes
   set ttimeout                " notimeout & ttimeout
-  set timeoutlen=350          " waiting for 350 miliseconds
+  set timeoutlen=150          " waiting for 350 miliseconds
   set ttymouse=xterm2
   if &term =~? '256color'
     set t_Co=256
+  endif
+
+  if empty($TERM_PROGRAM)
+    " Expect to be Gnome-Terminal >= 3.16
+    au VimEnter,InsertLeave * silent execute '!echo -ne "\e[2 q"' | redraw!
+    au InsertEnter,InsertChange *
+    \ if v:insertmode == 'i' |
+    \   silent execute '!echo -ne "\e[6 q"' | redraw! |
+    \ elseif v:insertmode == 'r' |
+    \   silent execute '!echo -ne "\e[4 q"' | redraw! |
+    \ endif
+    au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
+  else
+    " iTerm2
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
   endif
 endif
 
