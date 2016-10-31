@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
+#/ Author: Edson César <edsono@gmail.com>
+#/ Date: $date
 #/ Usage: <filename> [OPTION] <argument>...
 #/ Description...
 set -e
