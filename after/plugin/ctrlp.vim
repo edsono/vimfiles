@@ -16,10 +16,10 @@ command! CtrlPNotes call ctrlp#init(ctrlp#notes#id())
 let g:ctrlp_map = '<Leader>a'
 
 nnoremap <Leader>a :CtrlP<cr>
-nnoremap <Leader>m :CtrlPMRU<cr>
-nnoremap <Leader>s :CtrlPRTS<cr>
-nnoremap <Leader>n :CtrlPSkel<cr>
-nnoremap <Leader>e :CtrlPNotes<cr>
-nnoremap <Leader>b :CtrlPBuffer<cr>
-nnoremap <Leader>f :CtrlPClearCache<cr>
-nnoremap <Leader>F :CtrlPClearAllCaches<cr>
+nnoremap <Leader>am :CtrlPMRU<cr>
+nnoremap <Leader>as :CtrlPRTS<cr>
+nnoremap <Leader>an :CtrlPSkel<cr>
+nnoremap <Leader>ae :CtrlPNotes<cr>
+nnoremap <Leader>ab :CtrlPBuffer<cr>
+nnoremap <Leader>af :CtrlPClearCache<cr>
+nnoremap <Leader>aF :CtrlPClearAllCaches<cr>
