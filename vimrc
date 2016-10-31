@@ -262,6 +262,11 @@ vnoremap <C-k> :m-2<CR>gv=gv
 cnoremap <C-A> <Home>
 cnoremap <C-D> <Del>
 
+"Identify the syntax highlighting group used at the cursor
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
 " ----------------------------------------------------------------------------
 "  Leader Mappings
 " ----------------------------------------------------------------------------
