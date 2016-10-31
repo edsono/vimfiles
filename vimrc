@@ -226,6 +226,10 @@ command! -complete=help -nargs=1 H  :vertical botright help <args>
 nnoremap ' `
 nnoremap ` '
 
+" Sane ESC
+inoremap jk <ESC>
+inoremap <ESC> <nop>
+
 " open files in another window
 nnoremap gf     <C-W>f
 
