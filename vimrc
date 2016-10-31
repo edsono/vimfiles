@@ -131,50 +131,55 @@ endif
 call vundle#rc()
 
 " let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " vimscript repos
-Bundle 'dbext.vim'
-Bundle 'ViewOutput'
-Bundle 'matchit.zip'
-Bundle 'LanguageTool'
+Plugin 'dbext.vim'
+Plugin 'ViewOutput'
+Plugin 'matchit.zip'
 
 " github repos
-Bundle 'edsono/vim-delphi.git'
+Plugin 'edsono/gruvbox'
 
-Bundle 'ervandew/ag.git'
-Bundle 'ervandew/supertab.git'
+Plugin 'ervandew/ag'
+Plugin 'ervandew/supertab'
 
-Bundle 'xolox/vim-misc.git'
-Bundle 'xolox/vim-reload.git'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-reload'
 
-Bundle 'tpope/vim-repeat.git'
-Bundle 'tpope/vim-surround.git'
-Bundle 'tpope/vim-fugitive.git'
-Bundle 'tpope/vim-commentary.git'
-Bundle 'tpope/vim-unimpaired.git'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-obsession'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-unimpaired'
 
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'honza/vim-snippets'
-Bundle 'garbas/vim-snipmate'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'honza/vim-snippets'
+Plugin 'garbas/vim-snipmate'
 
-Bundle 'mbbill/undotree'
-Bundle 'bling/vim-airline'
-Bundle 'kien/ctrlp.vim.git'
-Bundle 'jgdavey/tslime.vim'
-Bundle 'majutsushi/tagbar.git'
-Bundle 'godlygeek/tabular.git'
-Bundle 'airblade/vim-rooter.git'
-Bundle 'scrooloose/syntastic.git'
-Bundle 'LaTeX-Box-Team/LaTeX-Box'
-Bundle 'vim-scripts/bufkill.vim.git'
+Plugin 'mbbill/undotree'
+Plugin 'sjl/vitality.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'godlygeek/tabular'
+Plugin 'mhinz/vim-startify'
+Plugin 'justinmk/vim-sneak'
+Plugin 'qpkorr/vim-bufkill'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'airblade/vim-rooter'
+Plugin 'scrooloose/syntastic'
+Plugin 'vim-scripts/LaTeX-Box'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'vim-airline/vim-airline'
+
 
 " Install plugins if are not there...
 if len(split(globpath('~/.vim/bundle', '*'), '\n')) <= 1
-  echo "Installing Bundles, please ignore key map error messages"
+  echo "Installing Plugins, please ignore key map error messages"
   echo ""
-  :BundleInstall!
+  :PluginInstall!
   quit!
 endif
 
