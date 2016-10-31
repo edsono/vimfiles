@@ -185,9 +185,6 @@ filetype plugin indent on
 " Other Configurations
 " ----------------------------------------------------------------------------
 
-" pastetoggle
-set pastetoggle=<C-q>
-
 " jump to last position of buffer when opening
 autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exec "normal g'\"" | endif
 
