@@ -62,7 +62,8 @@ endif
 
 set ruler                                      " show the cursor position all the time
 set showcmd                                    " display incomplete commands
-set nolazyredraw                               " turn off lazy redraw
+set ttyfast                                    " turn on fast tty for modern terms
+set lazyredraw                                 " turn on lazy redraw
 set relativenumber                             " relative line numbers
 set cmdheight=2                                " command line height
 set backspace=2                                " allow backspacing over everything in insert mode
