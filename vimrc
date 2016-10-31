@@ -303,7 +303,7 @@ if !has("gui_running")
   set mouse=a
   set timeout                 " timeout on mappings and key codes
   set ttimeout                " notimeout & ttimeout
-  set timeoutlen=100          " waiting for 100 miliseconds
+  set timeoutlen=350          " waiting for 350 miliseconds
   set ttymouse=xterm2
   if &term =~? '256color'
     set t_Co=256
