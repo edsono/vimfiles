@@ -29,14 +29,6 @@ set shortmess=filmnrxoO                        " abbrev. of messages (avoids 'hi
 set completeopt=menu,preview,longest           " complete options
 set spelllang=pt,en_us
 
-" Supertab
-let g:SuperTabCrMapping=1
-let g:SuperTabLongestEnhanced=1
-let g:SuperTabLongestHighlight=1
-let g:SuperTabDefaultCompletionType="context"
-let g:SuperTabDefaultCompletionType="<c-n>"
-let g:SuperTabMappingBackward='<Leader><TAB>'  " access Supertab when Snipmate is 'running'
-
 " ----------------------------------------------------------------------------
 " Backups
 " ----------------------------------------------------------------------------
@@ -111,6 +103,18 @@ set nosmarttab                                 " fuck tabs
 set formatoptions+=n                           " support for numbered/bullet lists
 set textwidth=0                                " no wrap at all by default
 set virtualedit=block                          " allow virtual edit in visual block ...
+
+" ----------------------------------------------------------------------------
+" Plugins configuration
+" ----------------------------------------------------------------------------
+
+" Supertab
+let g:SuperTabCrMapping=1
+let g:SuperTabLongestEnhanced=1
+let g:SuperTabLongestHighlight=1
+let g:SuperTabDefaultCompletionType="context"
+let g:SuperTabDefaultCompletionType="<c-n>"
+let g:SuperTabMappingBackward='<Leader><TAB>'  " access Supertab when Snipmate is 'running'
 
 " ----------------------------------------------------------------------------
 " Vundle
