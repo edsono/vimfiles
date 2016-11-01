@@ -111,10 +111,10 @@ set virtualedit=block                          " allow virtual edit in visual bl
 " Supertab
 let g:SuperTabCrMapping=1
 let g:SuperTabLongestEnhanced=1
-let g:SuperTabLongestHighlight=1
+let g:SuperTabLongestHighlight=0               " Bug: Fix an annoying bug with Supertab’s autocompletion
 let g:SuperTabDefaultCompletionType="context"
 let g:SuperTabDefaultCompletionType="<c-n>"
-let g:SuperTabMappingBackward='<Leader><TAB>'  " access Supertab when Snipmate is 'running'
+let g:SuperTabMappingBackward='<Leader><TAB>'  " Access Supertab when Snipmate is 'running'
 
 " ----------------------------------------------------------------------------
 " Vundle
