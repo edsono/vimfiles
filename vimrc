@@ -108,6 +108,16 @@ set virtualedit=block                          " allow virtual edit in visual bl
 " Plugins configuration
 " ----------------------------------------------------------------------------
 
+" Vitality
+let g:vitality_fix_focus = 0
+let g:vitality_always_assume_iterm = 1
+
+" Airline – unicode symbols
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_branch_prefix = '⎇ '
+let g:airline_paste_symbol = 'Þ'
+
 " Supertab
 let g:SuperTabCrMapping=1
 let g:SuperTabLongestEnhanced=1
@@ -115,6 +125,13 @@ let g:SuperTabLongestHighlight=0               " Bug: Fix an annoying bug with S
 let g:SuperTabDefaultCompletionType="context"
 let g:SuperTabDefaultCompletionType="<c-n>"
 let g:SuperTabMappingBackward='<Leader><TAB>'  " Access Supertab when Snipmate is 'running'
+
+" Tagbar
+let g:tagbar_autoclose = 1
+let g:tagbar_autofocus = 1
+let g:tagbar_singleclick = 1
+let g:tagbar_autoshowtag = 1
+nnoremap <Leader>t :TagbarToggle<cr>
 
 " ----------------------------------------------------------------------------
 " Vundle
@@ -163,7 +180,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'honza/vim-snippets'
 Plugin 'garbas/vim-snipmate'
-
+ 
 Plugin 'mbbill/undotree'
 Plugin 'sjl/vitality.vim'
 Plugin 'majutsushi/tagbar'
@@ -177,7 +194,6 @@ Plugin 'scrooloose/syntastic'
 Plugin 'vim-scripts/LaTeX-Box'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline'
-
 
 " Install plugins if are not there...
 if len(split(globpath('~/.vim/bundle', '*'), '\n')) <= 1
@@ -221,6 +237,10 @@ command! -complete=help -nargs=1 H  :vertical botright help <args>
 " ----------------------------------------------------------------------------
 "  Mappings
 " ----------------------------------------------------------------------------
+
+" Sane marks
+inoremap ,. <Esc>
+inoremap <Esc> <nop>
 
 " Sane marks
 nnoremap ' `
@@ -285,12 +305,8 @@ let mapleader=","
 nnoremap <Leader>n /<C-R>"<CR>
 nnoremap <Leader>N ?<C-R>"<CR>
 
-" Yank to OS X pasteboard.
+" Yank to System clipboard.
 noremap <leader>y "*y
-
-" Paste from OS X pasteboard without messing up indent.
-noremap <leader>p :set paste<CR>"*p<CR>:set nopaste<CR>
-noremap <leader>P :set paste<CR>"*P<CR>:set nopaste<CR>
 
 " ----------------------------------------------------------------------------
 " Terminal Support
@@ -304,9 +320,9 @@ imap <Esc>OD <Left>
 
 if !has("gui_running")
   set mouse=a
-  set timeout                 " timeout on mappings and key codes
-  set ttimeout                " notimeout & ttimeout
-  set timeoutlen=150          " waiting for 350 miliseconds
+  set notimeout
+  set nottimeout
+  set timeoutlen=1000
   set ttymouse=xterm2
   if &term =~? '256color'
     set t_Co=256
