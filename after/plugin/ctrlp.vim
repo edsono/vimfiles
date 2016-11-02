@@ -9,17 +9,15 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
   \ }
 
-let g:ctrlp_extensions = ['skel', 'notes']
+let g:ctrlp_extensions = ['skel']
 command! CtrlPSkel call ctrlp#init(ctrlp#skel#id())
-command! CtrlPNotes call ctrlp#init(ctrlp#notes#id())
 
-let g:ctrlp_map = '<Leader>a'
+" let g:ctrlp_map = '<Leader>p'
 
-nnoremap <Leader>a :CtrlP<cr>
-nnoremap <Leader>am :CtrlPMRU<cr>
-nnoremap <Leader>as :CtrlPRTS<cr>
-nnoremap <Leader>an :CtrlPSkel<cr>
-nnoremap <Leader>ae :CtrlPNotes<cr>
-nnoremap <Leader>ab :CtrlPBuffer<cr>
-nnoremap <Leader>af :CtrlPClearCache<cr>
-nnoremap <Leader>aF :CtrlPClearAllCaches<cr>
+nnoremap <Leader>pp :CtrlP<cr>
+nnoremap <Leader>pm :CtrlPMRU<cr>
+nnoremap <Leader>ps :CtrlPRTS<cr>
+nnoremap <Leader>pn :CtrlPSkel<cr>
+nnoremap <Leader>pb :CtrlPBuffer<cr>
+nnoremap <Leader>pf :CtrlPClearCache<cr>
+nnoremap <Leader>pF :CtrlPClearAllCaches<cr>
