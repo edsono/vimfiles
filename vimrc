@@ -180,7 +180,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'honza/vim-snippets'
 Plugin 'garbas/vim-snipmate'
- 
+
 Plugin 'mbbill/undotree'
 Plugin 'sjl/vitality.vim'
 Plugin 'majutsushi/tagbar'
