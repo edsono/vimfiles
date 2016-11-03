@@ -36,11 +36,18 @@ augroup ruby
   autocmd BufWritePost *.rb :CtagsUpdate
 augroup END
 
-let g:compiler_gcc_ignore_unmatched_lines=1
 augroup c
   autocmd!
   autocmd BufEnter *.c,*.h compiler gcc
   autocmd BufWritePost *.rb :CtagsUpdate
+  let g:compiler_gcc_ignore_unmatched_lines=1
+augroup END
+
+augroup python
+  autocmd!
+  autocmd BufEnter *.python :Rooter
+  autocmd BufNewFile,BufRead *.py compiler python
+  autocmd BufWritePost *.py :CtagsUpdate
 augroup END
 
 augroup java
