@@ -233,6 +233,7 @@ endif
 
 command! -complete=help -nargs=1 Ht :tab help <args>
 command! -complete=help -nargs=1 H  :vertical botright help <args>
+command! -complete=file -nargs=1 Vsp :vertical botright vsp <args>
 
 " ----------------------------------------------------------------------------
 "  Mappings
