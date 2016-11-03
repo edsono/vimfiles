@@ -44,8 +44,7 @@ syn keyword sqlOperator not and or
 syn keyword sqlOperator in any some all between exists
 syn keyword sqlOperator like escape
 syn keyword sqlOperator union intersect minus
-syn keyword sqlOperator prior distinct
-syn keyword sqlOperator sysdate out
+syn keyword sqlOperator prior distinct out
 
 syn match   sqlDelimiter   /\((\|)\|;\|,\|\.\)/
 syn match   sqlComparator  /\(>\|<=\|>=\|<>\|=\)/
@@ -57,7 +56,7 @@ syn keyword sqlStatement foreign references bitmap
 syn keyword sqlStatement truncate update
 
 syn keyword sqlFunction  trunc nvl lpad rpad decode
-syn keyword sqlFunction  to_date to_char to_number
+syn keyword sqlFunction  to_date to_char to_number sysdate
 
 syn keyword sqlType     boolean char character date float integer long
 syn keyword sqlType     mlslabel number raw rowid varchar varchar2 varray
