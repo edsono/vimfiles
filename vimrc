@@ -319,7 +319,19 @@ imap <Esc>OB <Down>
 imap <Esc>OC <Right>
 imap <Esc>OD <Left>
 
-if &term =~ '^screen'
+if !has("gui_running")
+  set mouse=a
+  set notimeout
+  set nottimeout
+  set timeoutlen=1000
+  set ttymouse=xterm2
+  if &term =~? '256color'
+    set t_ut=
+    set t_Co=256
+  endif
+endif
+
+if &term =~ '^screen' || &term =~ '^screen'
   " tmux sane arrows for Command-T
   map <Esc>[A <Up>
   map <Esc>[B <Down>
@@ -331,17 +343,6 @@ if &term =~ '^screen'
   execute "set <xDown>=\e[1;*B"
   execute "set <xRight>=\e[1;*C"
   execute "set <xLeft>=\e[1;*D"
-endif
-
-if !has("gui_running")
-  set mouse=a
-  set notimeout
-  set nottimeout
-  set timeoutlen=1000
-  set ttymouse=xterm2
-  if &term =~? '256color'
-    set t_Co=256
-  endif
 endif
 
 " ----------------------------------------------------------------------------
