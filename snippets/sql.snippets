@@ -1,11 +1,12 @@
 snippet doc
-	-- Modelo Dimensional CCR (`Filename()`)
-	-- dbext:type=ORA:user=${1:user}:passwd=${2:@askb}:srvname=${3:server/service.domain}
-	-- Created by Edson César on `system("date +%Y-%m-%d")`.
+	/*
+	  ${1:Desc}
+	  Autor: Edson César
+	  Data: `system("date +%Y-%m-%d")`.
+	*/
+	${2}
 snippet pkg
 	CREATE OR REPLACE PACKAGE ${1:packageName} IS
-	
-	${2}
 	
 	END;
 snippet begin
@@ -49,7 +50,7 @@ snippet for
 	END LOOP;
 snippet while
 	WHILE ${1:condition} LOOP
-	  ${2}
+	 H ${2}
 	END LOOP;
 snippet cont
 	CONTINUE;
