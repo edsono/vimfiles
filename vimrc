@@ -27,7 +27,10 @@ set autoread                                   " reload files (no local changes 
 set tabpagemax=50                              " open 50 tabs max
 set shortmess=filmnrxoO                        " abbrev. of messages (avoids 'hit enter')
 set completeopt=menu,preview,longest           " complete options
+set splitright                                 " new split windows on the right of current window
+set splitbelow                                 " new split windows below current window
 set spelllang=pt,en_us
+
 
 " ----------------------------------------------------------------------------
 " Backups
@@ -233,7 +236,6 @@ endif
 
 command! -complete=help -nargs=1 Ht :tab help <args>
 command! -complete=help -nargs=1 H  :vertical botright help <args>
-command! -complete=file -nargs=1 Vsp :vertical botright vsp <args>
 
 " ----------------------------------------------------------------------------
 "  Mappings
