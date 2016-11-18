@@ -11,6 +11,90 @@ else
   quit!
 endif
 
+" Supertab must be configured before loading :(
+let g:SuperTabCrMapping=1
+let g:SuperTabLongestEnhanced=1
+let g:SuperTabLongestHighlight=0               " Bug: Fix an annoying bug with Supertab’s autocompletion
+let g:SuperTabDefaultCompletionType="context"
+let g:SuperTabDefaultCompletionType="<c-n>"
+let g:SuperTabMappingBackward='<Leader><TAB>'  " Access Supertab when Snipmate is 'running'
+
+" ----------------------------------------------------------------------------
+" Vundle
+" ----------------------------------------------------------------------------
+
+filetype off
+
+" Check Vundle or exit
+if filereadable(expand('~/.vim/bundle/vundle/autoload/vundle.vim'))
+  set rtp+=~/.vim/bundle/vundle/
+else
+  echo "Installing Vundle.."
+  echo ""
+  silent !mkdir -p ~/.vim/bundle
+  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+  quit!
+endif
+call vundle#rc()
+
+" let Vundle manage Vundle
+Plugin 'gmarik/vundle'
+
+" vimscript repos
+Plugin 'dbext.vim'
+Plugin 'ViewOutput'
+Plugin 'matchit.zip'
+
+" github repos
+Plugin 'edsono/gruvbox'
+
+Plugin 'ervandew/ag'
+Plugin 'ervandew/supertab'
+
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-reload'
+
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-obsession'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-unimpaired'
+
+Plugin 'itchyny/lightline.vim'
+Plugin 'itchyny/lightline-powerful'
+
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'honza/vim-snippets'
+Plugin 'garbas/vim-snipmate'
+
+Plugin 'mbbill/undotree'
+Plugin 'sjl/vitality.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'godlygeek/tabular'
+Plugin 'mhinz/vim-startify'
+Plugin 'justinmk/vim-sneak'
+Plugin 'qpkorr/vim-bufkill'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'airblade/vim-rooter'
+Plugin 'scrooloose/syntastic'
+Plugin 'vim-scripts/LaTeX-Box'
+Plugin 'airblade/vim-gitgutter'
+
+
+" Install plugins if are not there...
+if len(split(globpath('~/.vim/bundle', '*'), '\n')) <= 1
+  echo "Installing Plugins, please ignore key map error messages"
+  echo ""
+  :PluginInstall!
+  quit!
+endif
+
+syntax on
+filetype plugin indent on
+
 " ---------------------------------------------------------------------------
 " General
 " ---------------------------------------------------------------------------
@@ -112,99 +196,11 @@ set virtualedit=block                          " allow virtual edit in visual bl
 let g:vitality_fix_focus = 0
 let g:vitality_always_assume_iterm = 1
 
-" Airline – unicode symbols
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_branch_prefix = '⎇ '
-let g:airline_paste_symbol = 'Þ'
-
-" Supertab
-let g:SuperTabCrMapping=1
-let g:SuperTabLongestEnhanced=1
-let g:SuperTabLongestHighlight=0               " Bug: Fix an annoying bug with Supertab’s autocompletion
-let g:SuperTabDefaultCompletionType="context"
-let g:SuperTabDefaultCompletionType="<c-n>"
-let g:SuperTabMappingBackward='<Leader><TAB>'  " Access Supertab when Snipmate is 'running'
-
 " Tagbar
 let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
 let g:tagbar_singleclick = 1
 let g:tagbar_autoshowtag = 1
-nnoremap <Leader>t :TagbarToggle<cr>
-
-" ----------------------------------------------------------------------------
-" Vundle
-" ----------------------------------------------------------------------------
-
-filetype off
-
-" Check Vundle or exit
-if filereadable(expand('~/.vim/bundle/vundle/autoload/vundle.vim'))
-  set rtp+=~/.vim/bundle/vundle/
-else
-  echo "Installing Vundle.."
-  echo ""
-  silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-  quit!
-endif
-call vundle#rc()
-
-" let Vundle manage Vundle
-Plugin 'gmarik/vundle'
-
-" vimscript repos
-Plugin 'dbext.vim'
-Plugin 'ViewOutput'
-Plugin 'matchit.zip'
-
-" github repos
-Plugin 'edsono/gruvbox'
-
-Plugin 'ervandew/ag'
-Plugin 'ervandew/supertab'
-
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-reload'
-
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-obsession'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-unimpaired'
-
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'honza/vim-snippets'
-Plugin 'garbas/vim-snipmate'
-
-Plugin 'mbbill/undotree'
-Plugin 'sjl/vitality.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'godlygeek/tabular'
-Plugin 'mhinz/vim-startify'
-Plugin 'justinmk/vim-sneak'
-Plugin 'qpkorr/vim-bufkill'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'airblade/vim-rooter'
-Plugin 'scrooloose/syntastic'
-Plugin 'vim-scripts/LaTeX-Box'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'vim-airline/vim-airline'
-
-" Install plugins if are not there...
-if len(split(globpath('~/.vim/bundle', '*'), '\n')) <= 1
-  echo "Installing Plugins, please ignore key map error messages"
-  echo ""
-  :PluginInstall!
-  quit!
-endif
-
-syntax on
-filetype plugin indent on
 
 " ----------------------------------------------------------------------------
 " Other Configurations
@@ -240,8 +236,8 @@ command! -complete=file -nargs=1 Vsp :vertical botright vsp <args>
 " ----------------------------------------------------------------------------
 
 " Sane marks
-inoremap ,. <Esc>
-inoremap <Esc> <nop>
+" inoremap ,. <Esc>
+" inoremap <Esc> <nop>
 
 " Sane marks
 nnoremap ' `
@@ -291,9 +287,18 @@ cnoremap <C-A> <Home>
 cnoremap <C-D> <Del>
 
 "Identify the syntax highlighting group used at the cursor
-map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+map <F5> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+" Edit colorscheme
+map <F6> :execute ":tabe ~/.vim/bundle/gruvbox/colors/gruvbox.vim"<CR>
+
+" Edit snippets for filetype of the current buffer
+map <F9> :execute ":tabe ~/.vim/snippets/".&ft.".snippets"<CR>
+"
+" Edit .vimrc
+map <F10> :execute ":tabe ~/.vimrc"<CR>
 
 " ----------------------------------------------------------------------------
 "  Leader Mappings
@@ -308,6 +313,9 @@ nnoremap <Leader>N ?<C-R>"<CR>
 
 " Yank to System clipboard.
 noremap <leader>y "*y
+
+" Tagbar plugin mapping
+nnoremap <Leader>t :TagbarToggle<cr>
 
 " ----------------------------------------------------------------------------
 " Terminal Support
