@@ -46,7 +46,6 @@ augroup END
 augroup python
   autocmd!
   autocmd BufEnter *.python :Rooter
-  autocmd BufNewFile,BufRead *.py compiler python
   autocmd BufWritePost *.py :CtagsUpdate
 augroup END
 
