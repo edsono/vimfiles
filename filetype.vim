@@ -58,3 +58,11 @@ augroup delphi
   autocmd!
   autocmd BufEnter *.dpr,*.DPR,*.pas,*.PAS :Rooter
 augroup END
+
+augroup oracle
+  autocmd!
+  autocmd FileType plsql compiler sqlplus
+  autocmd FileType plsql set commentstring=--\ %s
+  autocmd BufNewFile,BufRead *.fun,*.pks,*.pkb,*.sql,*.pls,*.plsql set filetype=plsql
+  autocmd BufNewFile,BufRead *.fun,*.pks,*.pkb,*.sql,*.pls,*.plsql set nosmartindent
+augroup END
