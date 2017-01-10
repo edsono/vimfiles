@@ -70,6 +70,7 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'honza/vim-snippets'
 Plugin 'garbas/vim-snipmate'
 
+Plugin 'lervag/vimtex'
 Plugin 'mbbill/undotree'
 Plugin 'sjl/vitality.vim'
 Plugin 'majutsushi/tagbar'
@@ -80,7 +81,6 @@ Plugin 'qpkorr/vim-bufkill'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'airblade/vim-rooter'
 Plugin 'scrooloose/syntastic'
-Plugin 'vim-scripts/LaTeX-Box'
 Plugin 'airblade/vim-gitgutter'
 
 
